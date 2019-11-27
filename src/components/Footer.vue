@@ -9,7 +9,7 @@
 
       <v-card-text class="py-2 white--text text-center">
         {{ new Date().getFullYear() }} —
-        <strong>Vuetify</strong>
+        <strong>Pawty CIE</strong>
       </v-card-text>
     </v-card>
   </v-footer>

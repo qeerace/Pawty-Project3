@@ -16,7 +16,12 @@
                   enctype="multipart/form-data"
                 >
                   <v-container py-0>
-                    <v-layout wrap>
+                    <v-layout wrap>                      
+                      <v-flex xs12 md12>
+                        <h1
+                          class="headline text-center font-weight-bold blue-grey--text text--darken-3"
+                        >Fill Information to report a pet</h1>
+                      </v-flex>
                       <v-flex xs12 md12>
                         <v-icon color="blue-grey darken-3">mdi-cursor-default-click</v-icon>
                         <span
@@ -27,11 +32,6 @@
                         <v-radio label="Lost pet" value="Lost" color="yellow darken-3"></v-radio>
                         <v-radio label="Found pet" value="Found" color="yellow darken-3"></v-radio>
                       </v-radio-group>
-                      <v-flex xs12 md12>
-                        <h1
-                          class="headline text-center font-weight-bold blue-grey--text text--darken-3"
-                        >Fill Information to Report A Pet</h1>
-                      </v-flex>
                       <v-flex xs12 md12>
                         <v-text-field
                           label="Title *"

@@ -11,6 +11,10 @@
         <v-icon :small="true" color="yellow darken-3">mdi-home</v-icon>
         <span class="mr-2 blue-grey--text text--darken-3" style="margin-right:10px;">Home</span>
       </v-btn>
+      <v-btn text to="/lost-found-pets">
+        <v-icon :small="true" color="yellow darken-3">mdi-file-document-box-search</v-icon>
+        <span class="mr-2 blue-grey--text text--darken-3" style="margin-right:10px;">Lost & Found Pet</span>
+      </v-btn>
       <v-btn text to="/post">
         <v-icon :small="true" color="yellow darken-3">mdi-post</v-icon>
         <span class="mr-2 blue-grey--text text--darken-3">Report here!</span>

@@ -27,6 +27,16 @@
                   <v-divider></v-divider>
                   <v-list-item>
                     <v-list-item-action>
+                      <v-btn text :to="'/petid'">My PetID</v-btn>
+                    </v-list-item-action>
+                  </v-list-item>
+                  <v-list-item>
+                    <v-list-item-action>
+                      <v-btn text :to="'/my-posts'">My PetID</v-btn>
+                    </v-list-item-action>
+                  </v-list-item>
+                  <v-list-item>
+                    <v-list-item-action>
                       <v-btn text :to="'/my-posts'">My Posts</v-btn>
                     </v-list-item-action>
                   </v-list-item>
