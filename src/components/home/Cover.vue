@@ -1,6 +1,6 @@
 <template>
   <v-container class="list">
-    <v-card style="margin-top: -80px;">
+    <v-card style="margin-top: -100px;">
       <v-responsive :aspect-ratio="16/9">
       <!-- <v-spacer></v-spacer> -->
       <br>
