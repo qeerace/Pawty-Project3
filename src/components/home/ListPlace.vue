@@ -181,9 +181,9 @@ export default {
       this.wholeResponse = response.data;
       this.wholeResponse.sort(function(a, b){
     return a.Distance - b.Distance;});
-    console.log(this.wholeResponse);
+    // console.log(this.wholeResponse);
     }))
-    .catch(error => console.log(error));
+    // .catch(error => console.log(error));
     this.loading(false)
   },
   methods: {
@@ -193,16 +193,16 @@ export default {
     //post lat,lon,type to API
     postType (event) {
       this.typePlace = event.currentTarget.name;
-      console.log(this.typePlace)
+      // console.log(this.typePlace)
       locationService.currentCoordinates().then(
    coords => 
       axios.post('https://skilled-array-252503.appspot.com/placestype/?type='+ this.typePlace +'&lat=' + coords.latitude + '&long=' + coords.latitude)
     .then(response => {
       this.wholePlace = response.data;
     }))
-    .catch(error => {
-      console.log(error)
-      })
+    // .catch(error => {
+    //   console.log(error)
+    //   })
     this.$router.push('/petservices/' + this.typePlace)
     },
     

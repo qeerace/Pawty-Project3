@@ -146,16 +146,16 @@ export default {
     
     mounted () {
     const uid = firebase.auth().currentUser.uid;
-    console.log(uid)
+    // console.log(uid)
     axios
       .get('https://skilled-array-252503.appspot.com/allvets/userid/'+uid)
       .then(response => {
         this.vetsinfo = response.data
         this.loading = false
-        console.log(this.vetsinfo)
+        // console.log(this.vetsinfo)
       })
-      .catch(error => {
-        console.log(error)
+      .catch(() => {
+        // console.log(error)
       })
     },
 
@@ -171,7 +171,7 @@ export default {
             //this.resetForm()
             const uid = firebase.auth().currentUser.uid;
             //console.log(uid)
-            console.log('INSERTED')
+            // console.log('INSERTED')
             axios.post('https://skilled-array-252503.appspot.com/register/vet', {
                 "UserID": uid,
                 "Vet_name": this.form.Vet_name,
@@ -181,17 +181,17 @@ export default {
             })
             .then(response => {
                 this.vets = response.data;
-                console.log(response);
+                // console.log(response);
             })
-            .catch(error => {
-                console.log(error)
+            .catch(() => {
+                // console.log(error)
             });
           } else {
             this.snackbar = true
             //this.resetForm()
             const uid = firebase.auth().currentUser.uid;
             //console.log(uid)
-            console.log('UPDATED')
+            // console.log('UPDATED')
             axios.patch('https://skilled-array-252503.appspot.com/update/vets/'+uid, {
                 "Vet_name": this.form.Vet_name,
                 "Hospital_name": this.form.Hospital_name,
@@ -200,10 +200,10 @@ export default {
             })
             .then(response => {
                 this.vets = response.data;
-                console.log(response);
+                // console.log(response);
             })
-            .catch(error => {
-                console.log(error)
+            .catch(() => {
+                // console.log(error)
             });
           }
         }

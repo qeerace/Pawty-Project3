@@ -443,10 +443,10 @@ import { required, maxLength, minLength, email, decimal, numeric, integer } from
 
     }).then(response => {
       this.wholePlace = response.data;
-      console.log(response);
+      // console.log(response);
     })
-    .catch(error => {
-      console.log(error)
+    .catch((error) => {
+      // console.log(error)
       })
     },
       clear () {

@@ -465,9 +465,9 @@ import { required, maxLength, minLength, email, decimal, numeric, integer } from
                 else if (type == "PetRestaurant"){
                     this.select = 'Pet Restaurant'
                 }
-            console.log(this.select)
-            }).catch(error => {
-                console.log(error)
+            // console.log(this.select)
+            }).catch(() => {
+                // console.log(error)
             })
     },
       submit () {
@@ -489,10 +489,10 @@ import { required, maxLength, minLength, email, decimal, numeric, integer } from
 
     }).then(response => {
       this.wholePlace = response.data;
-      console.log(this.wholePlace);
+      // console.log(this.wholePlace);
     })
     .catch(error => {
-      console.log(error)
+      // console.log(error)
       })
     },
       clear () {

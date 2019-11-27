@@ -257,16 +257,16 @@ export default {
 
     mounted () {
     const uid = firebase.auth().currentUser.uid;
-    console.log(uid)
+    // console.log(uid)
     axios
       .get('https://skilled-array-252503.appspot.com/allpets/userid/'+uid)
       .then(response => {
         this.petinfo = response.data
         this.loading = false
-        console.log(this.petinfo)
+        // console.log(this.petinfo)
       })
-      .catch(error => {
-        console.log(error)
+      .catch(() => {
+        // console.log(error)
       })
     },
 
@@ -280,7 +280,7 @@ export default {
           if (this.petinfo.length == 0) {
             this.snackbar = true
             const uid = firebase.auth().currentUser.uid;
-            console.log('INSERTED')
+            // console.log('INSERTED')
             //console.log(uid)
             //console.log(this.uuid)
             axios.post('https://skilled-array-252503.appspot.com/register/pet', {
@@ -300,18 +300,18 @@ export default {
             })
             .then(response => {
                 this.pet = response.data;
-                console.log(response);
+                // console.log(response);
             })
-            .catch(error => {
-                console.log(error)
+            .catch(() => {
+                // console.log(error)
             });
           } else {
             this.snackbar = true
             //this.resetForm()
             // const uid = firebase.auth().currentUser.uid;
             const p = this.petinfo.map(pid => pid.PetID);
-            console.log(p)
-            console.log('UPDATED')
+            // console.log(p)
+            // console.log('UPDATED')
             axios.patch('https://skilled-array-252503.appspot.com/update/petid/'+ p, {
                 "Appearance": this.form.Appearance,
                 "Bd_pet": this.form.Bd_pet,
@@ -327,10 +327,10 @@ export default {
             })
             .then(response => {
                 this.pet = response.data;
-                console.log(response);
+                // console.log(response);
             })
-            .catch(error => {
-                console.log(error)
+            .catch(() => {
+                // console.log(error)
             });
           }
             

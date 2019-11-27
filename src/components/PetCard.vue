@@ -112,17 +112,17 @@ export default {
 
   mounted () {
     const uid = firebase.auth().currentUser.uid;
-    console.log(uid)
+    // console.log(uid)
     axios
       .get('https://skilled-array-252503.appspot.com/allpets/userid/'+uid)
       .then(response => {
         this.petinfo = response.data
         this.loading = false
-        console.log(this.petinfo)
+        // console.log(this.petinfo)
       })
-      .catch(error => {
-        console.log(error)
-      })
+      // .catch(error => {
+      //   console.log(error)
+      // })
   },
   methods: {
 

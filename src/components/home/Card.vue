@@ -6,9 +6,12 @@
       <br>
         <v-toolbar flat>
           <v-layout align-center justify-center="">
-          <v-toolbar-title class="text-center display-1 font-weight-black">Feature Posts</v-toolbar-title>
-          
+          <v-toolbar-title class="text-center display-1 font-weight-black" style="margin-right:-150px;">Feature Posts</v-toolbar-title>
           </v-layout>
+          <v-btn to="/post" color="red">
+        <v-icon :small="true" color="white">mdi-post</v-icon>
+        <span class="title white--text">Report Now!</span>
+      </v-btn>
         </v-toolbar>
         <v-card-text>
           <ListPet />

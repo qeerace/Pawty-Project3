@@ -127,7 +127,7 @@ export default {
   },
   mounted () {
 
-    console.log(this.id)
+    // console.log(this.id)
     axios.all([
        axios.get('http://34.67.103.242:8080/places/' + this.id),
     axios.get('http://34.67.103.242:8080/comments/' + this.id)
@@ -136,20 +136,20 @@ export default {
         this.listPlace = placeRes.data
         this.cmntPlace = commentRes.data
         this.function();
-        console.log(this.listPlace);
-        console.log(this.cmntPlace);
+        // console.log(this.listPlace);
+        // console.log(this.cmntPlace);
         this.loading = false
       }))
-      .catch(error => {
-        console.log(error)
-      })
+      // .catch(error => {
+      //   console.log(error)
+      // })
       
   },
   methods:{
     function() {
       if (this.cmntPlace.length == 0 ) {
         this.Nocomment = "This place has no comments from users.\nBe the first one reviewing this place!"
-        console.log(this.Nocomment);
+        // console.log(this.Nocomment);
       } else {
         this.Nocomment = "";
       }
@@ -158,7 +158,7 @@ export default {
       this.$router.push('/petservices/edit/' + id)
     },
     submit (id) {
-      console.log(this.authorname)
+      // console.log(this.authorname)
       this.loading = true;
 
         // Save Comment
@@ -171,7 +171,7 @@ export default {
         .then(response => {
           this.commentNew = response.data;
           // success callback
-          console.log(response);
+          // console.log(response);
           // fire event for comment
           this.$emit('commented', response.data);  
 
@@ -182,7 +182,9 @@ export default {
 
           this.loading = false;
           location.reload()
-        }).catch(error => { console.log(error)
+        })
+        .catch(() => { 
+          // console.log(error)
           // error callback
           this.loading = false;
         });

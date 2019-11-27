@@ -90,14 +90,14 @@ export default {
     }
   },
   mounted () {
-    console.log(this.id)
+    // console.log(this.id)
     axios.get('https://skilled-array-252503.appspot.com/comments/' + this.id)
       .then(response => {
         this.cmntPlace = response.data
         this.loading = false
       })
       .catch(error => {
-        console.log(error)
+        // console.log(error)
       })
   },
   methods:{
@@ -105,7 +105,7 @@ export default {
       this.$router.push('/edit/' + id)
     },
     submit (id) {
-      console.log(this.authorname)
+      // console.log(this.authorname)
       this.loading = true;
 
         // Save Comment
@@ -118,7 +118,7 @@ export default {
         .then(response => {
           this.commentNew = response.data;
           // success callback
-          console.log(response);
+          // console.log(response);
           // fire event for comment
           this.$emit('commented', response.data);  
 
@@ -129,7 +129,9 @@ export default {
 
           this.loading = false;
           location.reload()
-        }).catch(error => { console.log(error)
+        })
+        .catch(() => { 
+          // console.log(error)
           // error callback
           this.loading = false;
         });

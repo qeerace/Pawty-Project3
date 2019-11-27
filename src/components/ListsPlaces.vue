@@ -138,13 +138,13 @@ export default {
   axios.get('http://34.67.103.242:8080/placestype/?type='+ this.typePlace +'&lat=' + coords.latitude + '&long=' + coords.longitude)
     .then(response => {
       this.wholeResponse = response.data
-      console.log(this.wholeResponse);
+      // console.log(this.wholeResponse);
       this.loading =false
       //this.wholeResponse.sort(function(a, b){return a.year - b.year});
     }))
-    .catch(error => {
-      console.log(error)
-    })
+    // .catch(error => {
+    //   console.log(error)
+    // })
   },
   methods: {
     placeDetails (id) {

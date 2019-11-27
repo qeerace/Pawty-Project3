@@ -79,47 +79,74 @@ const routes = [
   {
     path: "/petid",
     name: "petid",
-    component: () => import("../views/Profile.vue")
+    component: () => import("../views/Profile.vue"),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/formuser",
     name: "formuser",
-    component: () => import("../views/vFormuser.vue")
+    component: () => import("../views/vFormuser.vue"),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/formpetid",
     name: "formpetid",
-    component: () => import("../views/vFormpetid.vue")
+    component: () => import("../views/vFormpetid.vue"),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/petcard",
     name: "petcard",
-    component: () => import("../views/vPetid.vue")
+    component: () => import("../views/vPetid.vue"),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/formvets",
     name: "formvets",
-    component: () => import("../views/VFormvet.vue")
+    component: () => import("../views/VFormvet.vue"),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/vetscard",
     name: "vetscard",
-    component: () => import("../views/VVets.vue")
+    component: () => import("../views/VVets.vue"),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/medrecs",
     name: "medrecs",
-    component: () => import("../views/VMedical.vue")
+    component: () => import("../views/VMedical.vue"),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/formmedrec",
     name: "formmedrec",
-    component: () => import("../views/VFormmedrec.vue")
+    component: () => import("../views/VFormmedrec.vue"),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/qrcode",
     name: "qrcode",
-    component: () => import("../views/VQr.vue")
+    component: () => import("../views/VQr.vue"),
+    meta: {
+      requiresAuth: true
+    }
   }
 ];
 

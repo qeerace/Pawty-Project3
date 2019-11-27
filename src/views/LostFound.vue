@@ -5,7 +5,6 @@
     </v-img>-->
     <Carousels />
     <Card />
-    <Footer />
     <FilterLost />
   </div>
 </template>
@@ -34,3 +33,11 @@ export default {
   }
 };
 </script>
+<style>
+  /* This is for documentation purposes and will not be needed in your application */
+  #lateral .v-btn--example {
+    bottom: 0;
+    position: absolute;
+    margin: 0 0 16px 16px;
+  }
+</style>

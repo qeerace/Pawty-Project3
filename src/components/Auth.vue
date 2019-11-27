@@ -2,7 +2,7 @@
   <div class="text-center">
     <v-dialog v-model="loginModal" width="400" @input="v => v || this.setLoginModal(false)">
       <template v-slot:activator="{ on }">
-        <v-btn text v-on="on" v-if="!isAuth()">
+        <v-btn text v-on="on" v-if="!isAuth()" style="height:65px;">
           <v-icon :small="true" color="yellow darken-3">mdi-account-circle</v-icon>
           <span class="mr-2 yellow--text text--darken-3">Sign In</span>
         </v-btn>
@@ -10,7 +10,7 @@
           <div class="text-center">
             <v-menu :close-on-content-click="false" :nudge-width="100" offset-x>
               <template v-slot:activator="{ on }">
-                <v-btn text v-on="on">
+                <v-btn text v-on="on" style="height:65px;">
                   <v-icon size="20" color="yellow darken-3">mdi-account-circle</v-icon>
                   <span
                     class="mr-2 blue-grey--text text--darken-3"
@@ -22,23 +22,18 @@
               <v-card>
                 <v-list>
                   <v-list-item>
-                    <v-list-item-title>My Account</v-list-item-title>
+                    <v-list-item-title>Hi, {{ displayName() }}</v-list-item-title>
                   </v-list-item>
                   <v-divider></v-divider>
-                  <v-list-item>
-                    <v-list-item-action>
-                      <v-btn text :to="'/petid'">My PetID</v-btn>
-                    </v-list-item-action>
+                  <v-list-item :to="'/petid'">
+                    <!-- <v-list-item-action :to="'/petid'"> -->
+                      My PetID
+                    <!-- </v-list-item-action> -->
                   </v-list-item>
-                  <v-list-item>
-                    <v-list-item-action>
-                      <v-btn text :to="'/my-posts'">My PetID</v-btn>
-                    </v-list-item-action>
-                  </v-list-item>
-                  <v-list-item>
-                    <v-list-item-action>
-                      <v-btn text :to="'/my-posts'">My Posts</v-btn>
-                    </v-list-item-action>
+                  <v-list-item :to="'/my-posts'">
+                    <!-- <v-list-item-action> -->
+                      My Posts
+                    <!-- </v-list-item-action> -->
                   </v-list-item>
                   <v-card-actions>
                     <v-spacer></v-spacer>

@@ -53,17 +53,17 @@ export default {
   },
   mounted () {
     const uid = firebase.auth().currentUser.uid;
-    console.log(uid)
+    // console.log(uid)
     axios
       .get('https://skilled-array-252503.appspot.com/ownerinfo/userid/'+uid)
       .then(response => {
         this.wholeResponse = response.data
         this.loading = false
-        console.log(this.wholeResponse)
+        // console.log(this.wholeResponse)
       })
-      .catch(error => {
-        console.log(error)
-      })
+      // .catch(error => {
+      //   console.log(error)
+      // })
   },
   methods: {
 

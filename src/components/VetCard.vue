@@ -69,16 +69,16 @@ export default {
   },
   mounted () {
     const uid = firebase.auth().currentUser.uid;
-    console.log(uid)
+    // console.log(uid)
     axios
       .get('https://skilled-array-252503.appspot.com/allvets/userid/'+uid)
       .then(response => {
         this.vetsinfo = response.data
         this.loading = false
-        console.log(this.vetsinfo)
+        // console.log(this.vetsinfo)
       })
-      .catch(error => {
-        console.log(error)
+      .catch(() => {
+        // console.log(error)
       })
   },
   methods: {

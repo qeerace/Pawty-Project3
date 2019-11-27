@@ -258,11 +258,11 @@ export default {
         const p = this.petinfo.map(pid => pid.PetID);
         this.Petid = p
         this.Medrec(p)
-        console.log(this.Medrec(p))
-        console.log(this.petinfo)
+        // console.log(this.Medrec(p))
+        // console.log(this.petinfo)
       })
-      .catch(error => {
-        console.log(error)
+      .catch(() => {
+        // console.log(error)
       });
 
     },
@@ -275,16 +275,16 @@ export default {
 
         Medrec(p) {
             // const uid = firebase.auth().currentUser.uid;
-            console.log(p)
+            // console.log(p)
             axios
             .get('https://skilled-array-252503.appspot.com/allmedicals/'+p)
             .then(response => {
                 this.medinfo = response.data
                 this.loading = false
-                console.log(this.medinfo)
+                // console.log(this.medinfo)
             })
-            .catch(error => {
-                console.log(error)
+            .catch(() => {
+                // console.log(error)
             })
         },
 
@@ -292,7 +292,7 @@ export default {
             this.snackbar = true
             //this.$router.push({name:'vetscard'}).catch();
             // const uid = firebase.auth().currentUser.uid;
-            console.log('INSERTED')
+            // console.log('INSERTED')
             //console.log(uid)
             //console.log(this.uuid)
             axios.post('https://skilled-array-252503.appspot.com/register/medical' ,{
@@ -306,10 +306,10 @@ export default {
             })
             .then(response => {
                 this.pet = response.data;
-                console.log(response);
+                // console.log(response);
             })
-            .catch(error => {
-                console.log(error)
+            .catch(() => {
+                // console.log(error)
             });  
             //this.resetForm()          
         }
