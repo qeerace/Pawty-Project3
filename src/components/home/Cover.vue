@@ -6,12 +6,13 @@
       <br>
         <v-toolbar flat>
           <v-layout align-center justify-center="">
-          <v-toolbar-title class="text-center display-1 font-weight-black">Featured Posts</v-toolbar-title>
+          <v-toolbar-title class="text-center display-1 font-weight-black">Where do yo want to go?</v-toolbar-title>
           
           </v-layout>
         </v-toolbar>
         <v-card-text>
-          <ListPet />
+          <ListPlace />
+          <!-- <ListPet /> -->
           <!-- <Test /> -->
         </v-card-text>
       </v-responsive>
@@ -21,12 +22,14 @@
 
 <script>
 // @ is an alias to /src
-import ListPet from "./ListPet.vue";
+// import ListPet from "./ListPet.vue";
+import ListPlace from "@/components/home/ListPlace.vue";
 
 export default {
   name: "list",
   components: {
-    ListPet
+    // ListPet
+    ListPlace,
   }
 };
 </script>

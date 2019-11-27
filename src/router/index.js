@@ -3,6 +3,12 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Places from "@/components/Places";
+import ListsPlaces from "@/components/ListsPlaces";
+//import MainPage from '@/components/MainPage'
+import registerPlaces from "@/components/registerPlaces";
+import ListPlace from "@/components/home/ListPlace";
+import editPlace from "@/components/editPlace";
 
 Vue.use(VueRouter);
 
@@ -37,6 +43,39 @@ const routes = [
     meta: {
       requiresAuth: true
     }
+  },
+  {
+    path: "/petservices/:typePlace",
+    name: "type",
+    props: true,
+    component: ListsPlaces
+  },
+  {
+    path: "/petservices/place/:id",
+    name: "Places",
+    props: true,
+    component: Places
+  },
+  {
+    path: "/petservices/admin/register",
+    name: "registerPlaces",
+    props: true,
+    component: registerPlaces,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/main",
+    name: "ListPlace",
+    props: true,
+    component: ListPlace
+  },
+  {
+    path: "/petservices/edit/:id",
+    name: "editPlace",
+    props: true,
+    component: editPlace
   }
 ];
 

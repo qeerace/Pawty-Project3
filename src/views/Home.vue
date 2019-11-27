@@ -29,8 +29,8 @@
     </v-carousel-item>
   </v-carousel>
     <Cover />
-
-    <FilterLost />
+    <Footer />
+    <!-- <FilterLost /> -->
   </div>
 </template>
 
@@ -38,14 +38,17 @@
 // @ is an alias to /src
 // import HelloWorld from "@/components/HelloWorld.vue";
 import Cover from "@/components/home/Cover.vue";
-import FilterLost from "@/components/home/FilterLost.vue";
+// import FilterLost from "@/components/home/FilterLost.vue";
+import Footer from "@/components/Footer.vue";
+
 
 export default {
   name: "home",
   components: {
     // HelloWorld,
     Cover,
-    FilterLost
+    // FilterLost
+    Footer
   },
   data () {
       return {
