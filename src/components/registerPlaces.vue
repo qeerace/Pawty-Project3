@@ -445,7 +445,7 @@ import { required, maxLength, minLength, email, decimal, numeric, integer } from
       this.wholePlace = response.data;
       // console.log(response);
     })
-    .catch((error) => {
+    .catch(() => {
       // console.log(error)
       })
     },

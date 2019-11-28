@@ -129,8 +129,8 @@ export default {
 
     // console.log(this.id)
     axios.all([
-       axios.get('http://34.67.103.242:8080/places/' + this.id),
-    axios.get('http://34.67.103.242:8080/comments/' + this.id)
+       axios.get('https://skilled-array-252503.appspot.com/places/' + this.id),
+    axios.get('https://skilled-array-252503.appspot.com/comments/' + this.id)
     ])
       .then(axios.spread((placeRes, commentRes) => {
         this.listPlace = placeRes.data

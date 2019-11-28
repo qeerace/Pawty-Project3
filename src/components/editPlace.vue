@@ -433,7 +433,7 @@ import { required, maxLength, minLength, email, decimal, numeric, integer } from
     },
     methods: {
         fetchPlace (id) {
-            axios.get('http://34.67.103.242:8080/places/'+ id)
+            axios.get('https://skilled-array-252503.appspot.com/places/'+ id)
             .then(response => {
             this.placesData = response.data;
             this.name = this.placesData[0].placesName
@@ -473,7 +473,7 @@ import { required, maxLength, minLength, email, decimal, numeric, integer } from
       submit () {
         this.$v.$touch()
         this.snackbar = true
-        axios.patch('http://34.67.103.242:8080/editplaces/' + this.id, {
+        axios.patch('https://skilled-array-252503.appspot.com/editplaces/' + this.id, {
 
       "placesName":(this.name),
       "Latitude":(this.latitude),
@@ -491,7 +491,7 @@ import { required, maxLength, minLength, email, decimal, numeric, integer } from
       this.wholePlace = response.data;
       // console.log(this.wholePlace);
     })
-    .catch(error => {
+    .catch(() => {
       // console.log(error)
       })
     },

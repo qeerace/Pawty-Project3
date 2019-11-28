@@ -135,7 +135,7 @@ export default {
   mounted () {
     locationService.currentCoordinates().then(
    coords =>
-  axios.get('http://34.67.103.242:8080/placestype/?type='+ this.typePlace +'&lat=' + coords.latitude + '&long=' + coords.longitude)
+  axios.get('https://skilled-array-252503.appspot.com/placestype/?type='+ this.typePlace +'&lat=' + coords.latitude + '&long=' + coords.longitude)
     .then(response => {
       this.wholeResponse = response.data
       // console.log(this.wholeResponse);

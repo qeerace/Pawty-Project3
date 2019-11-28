@@ -98,7 +98,10 @@ export default {
           Authorization: "Bearer " + idToken,
           "Access-Control-Allow-Origin": "*"
         }
+        
+        
       };
+      // console.log(idToken);
     }
     axios
       .get("/my_post/" + firebase.auth().currentUser.uid, config)
