@@ -100,7 +100,7 @@ export default {
       petinfo: [],
       loading: true,
       overlay: false,
-      value: 'http://localhost:8080/PetCard',
+      value: "https://skilled-array-252503.firebaseapp.com/qrcode",
       size: 200,
       dialog: false
     }

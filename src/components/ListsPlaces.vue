@@ -12,37 +12,32 @@
   
 <v-container>
   
+  
   <v-row justify="center">
   
   <v-card-title>{{this.typePlace}}</v-card-title>
   <v-spacer></v-spacer>
-   
-  </v-row> 
- 
-    <div class="grid-x companies-header">
-  <div class="large-3 medium-3 cell sortable-header" v-on:click="resortCafes('name')">
-    Company
-    <img class="sort-icon" src="/img/sort-asc.svg" v-show="sortBy == 'name' && sortDirection == 'ASC'"/>
-    <img class="sort-icon" src="/img/sort-desc.svg" v-show="sortBy == 'name' && sortDirection == 'DESC'"/>
-  </div>
-  <div class="large-5 medium-5 cell">
-    Website
-  </div>
-  <div class="large-2 medium-2 cell sortable-header" v-on:click="resortCafes('cafes')">
-    Cafes
-    <img class="sort-icon" src="/img/sort-asc.svg" v-show="sortBy == 'cafes' && sortDirection == 'ASC'"/>
-    <img class="sort-icon" src="/img/sort-desc.svg" v-show="sortBy == 'cafes' && sortDirection == 'DESC'"/>
-  </div>
-  <div class="large-2 medium-2 cell sortable-header" v-on:click="resortCafes('pending-actions')">
-    Actions Pending
-    <img class="sort-icon" src="/img/sort-asc.svg" v-show="sortBy == 'pending-actions' && sortDirection == 'ASC'"/>
-    <img class="sort-icon" src="/img/sort-desc.svg" v-show="sortBy == 'pending-actions' && sortDirection == 'DESC'"/>
-  </div>
-</div>
 
-<img class="sort-icon" src="/img/sort-asc.svg" v-show="sortBy == 'pending-actions' && sortDirection == 'ASC'"/>
-<img class="sort-icon" src="/img/sort-desc.svg" v-show="sortBy == 'pending-actions' && sortDirection == 'DESC'"/>
-
+  </v-row>
+   <v-btn 
+            @click="sortPrice()" 
+            >Sort By Price</v-btn>
+            <v-divider
+        class="mx-1"
+        inset
+        vertical
+      ></v-divider>
+            <v-btn 
+            @click="sortRate()" 
+            >Sort By Rate</v-btn> 
+            <v-divider
+        class="mx-1"
+        inset
+        vertical
+      ></v-divider>
+            <v-btn 
+            @click="sortName()" 
+            >Sort By Name</v-btn> 
 <v-divider
         class="mx-1"
         inset
@@ -74,7 +69,7 @@
         class="mx-0"
       >
           <v-rating
-            :value="item.placesRating"
+            :value="item.avgRATE"
             color="amber"
             dense
             half-increments
@@ -82,7 +77,7 @@
             size="14"
           ></v-rating>
           
-          <div class="grey--text ml-4">{{item.placesRating}} (40)</div>
+          <div class="grey--text ml-4">{{item.avgRATE}} (40)</div>
           
           <div class="my-4 subtitle-1 black--text">
         {{item.Pricing}}  ฿ • Thai,  {{item.Type}}
@@ -130,6 +125,7 @@ export default {
       sortBy: 'name',
       sortDirection: 'ASC',
       search: '',
+      ratingsAll:''
     }
   },
   mounted () {
@@ -142,90 +138,26 @@ export default {
       this.loading =false
       //this.wholeResponse.sort(function(a, b){return a.year - b.year});
     }))
-    // .catch(error => {
-    //   console.log(error)
-    // })
+    .catch(() => {
+      // console.log(error)
+    })
   },
   methods: {
     placeDetails (id) {
       this.$router.push('/petservices/place/' + id)
     },
-      /* Re-sorts the cafes by what was selected. */
-    resortCafes( by ){
-      /*
-        Checks to see if what the user selected to sort by
-        is the same as it's been. If it is, then we toggle the
-        direction.
-      */
-      if( by == this.sortBy ){
-        if( this.sortDirection == 'ASC' ){
-          this.sortDirection = 'DESC';
-        }else{
-          this.sortDirection = 'ASC';
-        }
-      }
-      /*
-        If the sort by is different we set the sort by to what the
-        user selected and defualt the direction to 'ASC'
-      */
-      if( by != this.sortBy ){
-        this.sortDirection = 'ASC';
-        this.sortBy = by;
-      }
-
-      /*
-        Switch by what the sort by is set to, and run the method
-        to sort by that column.
-      */
-      switch( this.sortBy ){
-        case 'name':
-          this.sortPlacesByName();
-        break;
-        case 'cafes':
-          this.sortPlaceByCafes();
-        break;
-        case 'pending-actions':
-          this.sortPlacesByPendingActions();
-        break;
-      }  
+    sortPrice () {
+      this.wholeResponse.sort(function(a, b){
+        return a.Pricing - b.Pricing;});
     },
-    /* Sorts the companies by name. */
-    sortPlacesByName(){
-      this.wholeResponse.sort( function( a, b ){
-        if( this.sortDirection == 'ASC' ){
-          return ( ( a.placesName == b.placesName ) ? 0 : ( ( a.placesName > b.placesName ) ? 1 : -1 ) );
-        }
-
-        if( this.sortDirection == 'DESC' ){
-          return ( ( a.placesName == b.placesName) ? 0 : ( ( a.placesName < b.placesName ) ? 1 : -1 ) );
-        }
-      }.bind(this));
+    sortRate () {
+      this.wholeResponse.sort(function(a, b){
+        return a.placesRating - b.placesRating;});
     },
-      /*Sorts the companies by cafe count.*/
-      sortPlacesByCafes(){
-        this.wholeResponse.sort( function( a, b ){
-          if( this.sortDirection == 'ASC' ){
-            return parseInt( a.cafes_count ) < parseInt( b.cafes_count ) ? 1 : -1;
-          }
-
-          if( this.sortDirection == 'DESC' ){
-            return parseInt( a.cafes_count ) > parseInt( b.cafes_count ) ? 1 : -1;
-          }
-        }.bind(this));
-      },
-      /* Sorts the companies by pending actions */
-    sortPlacesByPendingActions(){
-      this.companies.sort( function( a, b ){
-        if( this.sortDirection == 'ASC' ){
-          return parseInt( a.actions_count ) < parseInt( b.actions_count ) ? 1 : -1;
-        }
-
-        if( this.sortDirection == 'DESC' ){
-          return parseInt( a.actions_count ) > parseInt( b.actions_count ) ? 1 : -1;
-        }
-      }.bind(this));
+    sortName () {
+      this.wholeResponse.sort(function(a, b){
+        return a.placesName < b.placesName ? -1 : a.placesName > b.placesName ? 1 : 0;});
     }
-    
   }
 }
 </script>

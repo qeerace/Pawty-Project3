@@ -6,7 +6,7 @@
 
 <script>
 // @ is an alias to /src
-import GenQrCode from "@/components/GenQrCode.vue";
+import GenQrCode from "@/components/Petcardqr.vue";
 
 export default {
   name: "qrcode",

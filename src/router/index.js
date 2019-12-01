@@ -143,10 +143,7 @@ const routes = [
   {
     path: "/qrcode",
     name: "qrcode",
-    component: () => import("../views/VQr.vue"),
-    meta: {
-      requiresAuth: true
-    }
+    component: () => import("../views/VQr.vue")
   }
 ];
 

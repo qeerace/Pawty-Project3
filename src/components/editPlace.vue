@@ -5,7 +5,7 @@
       <v-container fluid>
       <v-card>
         <v-card-title class="title font-weight-black blue-grey--text text--darken-3">
-          Editing places details for {{placesData[0].placesName}}  </v-card-title>
+          Editing places details for {{placesData.placesName}}  </v-card-title>
         <v-divider
       class="mx-4"
       inset
@@ -274,7 +274,7 @@
       
     ></v-checkbox>
     <br>
-    <v-btn class="mr-4" @click="submit">submit</v-btn>
+    <v-btn class="mr-4" @click="submit()">submit</v-btn>
     <v-btn @click="clear">clear</v-btn>
         
       </v-flex>
@@ -433,20 +433,22 @@ import { required, maxLength, minLength, email, decimal, numeric, integer } from
     },
     methods: {
         fetchPlace (id) {
-            axios.get('https://skilled-array-252503.appspot.com/places/'+ id)
+            axios.get('https://skilled-array-252503.appspot.com/placesdetails/'+ id)
             .then(response => {
             this.placesData = response.data;
-            this.name = this.placesData[0].placesName
-            this.address = this.placesData[0].Address
-            this.latitude = this.placesData[0].Latitude
-            this.longitude = this.placesData[0].Longitude
-            this.rating = this.placesData[0].placesRating
-            this.opentime = this.placesData[0].Opentime
-            this.closetime = this.placesData[0].Closetime
-            this.phone = this.placesData[0].Telephone
-            this.price = this.placesData[0].Pricing
-            this.URL = this.placesData[0].URLimage
-            var type = this.placesData[0].Type
+            var i;
+            for (i = 0; i < this.placesData.length; i++) {
+            this.name = this.placesData[i].placesName
+            this.address = this.placesData[i].Address
+            this.latitude = this.placesData[i].Latitude
+            this.longitude = this.placesData[i].Longitude
+            this.rating = this.placesData[i].placesRating
+            this.opentime = this.placesData[i].Opentime
+            this.closetime = this.placesData[i].Closetime
+            this.phone = this.placesData[i].Telephone
+            this.price = this.placesData[i].Pricing
+            this.URL = this.placesData[i].URLimage
+            var type = this.placesData[i].Type
                 if (type == "PetShop"){
                     this.select = 'Pet Shop'
                 }
@@ -465,14 +467,10 @@ import { required, maxLength, minLength, email, decimal, numeric, integer } from
                 else if (type == "PetRestaurant"){
                     this.select = 'Pet Restaurant'
                 }
-            // console.log(this.select)
-            }).catch(() => {
-                // console.log(error)
-            })
+            }}).catch()
     },
       submit () {
         this.$v.$touch()
-        this.snackbar = true
         axios.patch('https://skilled-array-252503.appspot.com/editplaces/' + this.id, {
 
       "placesName":(this.name),
@@ -489,11 +487,10 @@ import { required, maxLength, minLength, email, decimal, numeric, integer } from
 
     }).then(response => {
       this.wholePlace = response.data;
-      // console.log(this.wholePlace);
+      this.snackbar = true
+      this.$router.push('/petservices/place/'+ this.id)
     })
-    .catch(() => {
-      // console.log(error)
-      })
+    .catch()
     },
       clear () {
         this.$v.$reset()

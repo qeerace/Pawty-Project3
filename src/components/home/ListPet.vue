@@ -90,9 +90,9 @@ export default {
         this.pageCount = response.data.page_count;
         this.loading = false;
       })
-      // .catch(error => {
+      .catch(() => {
       //   console.log(error);
-      // });
+      });
   },
   methods: {
     fetchData() {

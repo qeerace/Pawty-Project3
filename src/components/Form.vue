@@ -117,6 +117,7 @@
                           item-value="val"
                           label="Pet Size"
                           color="yellow darken-3"
+                          :rules="[v => !!v || 'Size is required']"
                           v-model="form.size"
                           required
                         ></v-select>
@@ -376,7 +377,7 @@ export default {
             this.showAlertOk = true;
             this.clearForm();
             this.$refs.report_form.resetValidation();
-            setTimeout(() => this.$router.push({ path: "/" }), 1000);
+            setTimeout(() => this.$router.push({ path: "/lost-found-pets" }), 1000);
           })
           .catch(() => {
             this.showAlertErr = true;
