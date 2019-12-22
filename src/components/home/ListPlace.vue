@@ -79,7 +79,9 @@
                 <v-card-text>
                   <h4 class="title black--text">{{item.placesName}}</h4>
                   <br />
-                  <p class="caption">{{item.Distance}} Kilometers away</p>
+                  <p class="caption">{{item.Distance}} Kilometers away<br>
+                  {{item.Address}}</p>
+                  
                   <v-row align="center" class="mx-0">
                     <v-rating
                       :value="item.avgRATE"

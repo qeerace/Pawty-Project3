@@ -68,6 +68,7 @@
         align="center"
         class="mx-0"
       >
+        <div class="grey--text ml-4">{{item.Address}}></div>
           <v-rating
             :value="item.avgRATE"
             color="amber"

@@ -100,7 +100,7 @@ export default {
       petinfo: [],
       loading: true,
       overlay: false,
-      value: "https://skilled-array-252503.firebaseapp.com/qrcode",
+      value: '',
       size: 200,
       dialog: false
     }
@@ -117,6 +117,7 @@ export default {
       .get('https://skilled-array-252503.appspot.com/allpets/userid/'+uid)
       .then(response => {
         this.petinfo = response.data
+        this.value = 'https://skilled-array-252503.appspot.com/allpets/userid/'+uid
         this.loading = false
         // console.log(this.petinfo)
       })

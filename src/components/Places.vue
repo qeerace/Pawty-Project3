@@ -25,6 +25,23 @@
                       <v-icon medium color="yellow darken-3">mdi-phone</v-icon>
                       Phone No.: {{item.Telephone}}
                     </div>
+                    <div>
+                      <v-icon medium color="yellow darken-3">mdi-alarm</v-icon> 
+                      Open - Close time: {{item.Opentime}} - {{item.Closetime}}
+                    </div>
+                     <v-rating
+                      :value="item.avgRATE"
+                      color="amber"
+                      dense
+                      half-increments
+                      readonly
+                      size="14"
+                    ></v-rating>
+                    
+                    <div>
+                      <v-icon medium color="yellow darken-3"></v-icon>
+                      Pricing: {{item.Pricing}} THB
+                    </div>
                   </v-card-text>
                   <v-card-actions>
                     <v-btn
